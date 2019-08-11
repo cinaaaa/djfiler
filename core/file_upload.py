@@ -12,28 +12,38 @@
 from . import logger, namegen
 
 ################ Parametrs
-# Name For File (optional)
-name = None
+dest = 0
+name = 0
 # Encrypt File Boolean (optional)
-encrypt = None
+encrypt = 0
 # Encrypt key (optional)
-key = None
+key = 0
 # File Format
-frtfile = 'jpg' # Test Format
+frtfile = 0
 # IF we not have name
-generated_name = None
+generated_name = 0
 
-def upload_file(file, dest, *args, **kwargs):
+def upload_file(file, dest,**kwargs):
     """
     We Upload Using This Function
     """
-    global encrypt
-    global name
-    global key
     global frtfile
     global generated_name
+    global key
+    global encrypt
+    global name
 
 
+    for keys, value in kwargs.items():
+        if str(keys) == 'name': name = value
+        if str(keys) == 'encrypt': encrypt = value
+        if str(keys) == 'key': key = value
+
+    logger.info('all parameters Passed {}{}{}'.format(key,encrypt,name))
+
+
+
+    frtfile = file.name.rsplit('.', 1)[1]
     # Generate Name For File
     try:
         generated_name = namegen.generate_name()
@@ -43,30 +53,16 @@ def upload_file(file, dest, *args, **kwargs):
     
 
 
-    # Get The Parametrs From Args
-    for ar in args:
-        try:
-            file = ar.file
-            dest = ar.dest
-        except:
-            logger.error('file and dest is Needed Parameter')
-        try:
-            name = ar.name
-            encrypt = ar.encrypt
-            key = ar.key
-        except:
-            logger.info('Some Optional Argumant arent Passed But Not Matter')
-
 
     # Save Files Without Encryption
-    if encrypt and key:
+    if encrypt != 0 and encrypt != '':
         """
             We Uplaod Files Here encrypted with key Parameters
         """
         logger.info('uploading in encrypted type')
         
         # if we have client selected name
-        if name:
+        if name != 0 and name != '':
             try:
                 pass
             except:
@@ -78,7 +74,7 @@ def upload_file(file, dest, *args, **kwargs):
 
     # Save Files With Encryption
     else:
-        if name:
+        if name != 0 and name != '':
             try:
                 # Write Uploaded Chunks
                 with open('{}/{}.{}'.format(dest, name, frtfile), 'wb+') as destination:

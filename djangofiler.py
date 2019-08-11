@@ -13,6 +13,11 @@
 
 from .core import file_upload, logger
 
+name = 0
+encrypt = 0
+key = 0
+
+
 class DjangoFiler:
     """
     @2019
@@ -32,35 +37,21 @@ class DjangoFiler:
         self.dest = dest_root
 
     # Upload Function
-    def upload(self, file, *args, **kwargs):
+    def upload(self, file, **kwargs):
         ################ Needed Parametrs
-        # Uploaded File
-        file = file
+        global name
+        global key
+        global encrypt
         # Destination Dir
         dest = self.dest
-        # Name For File (optional)
-        name = None
         # Encrypt File Boolean (optional)
-        encrypt = None
-        # Encrypt key (optional)
-        key = None
-        # File Format
-        frtfile = '.jpg' # Test Format
-
         # Get The Parametrs From Args
-        for ar in args:
-            try:
-                file = ar.file
-            except:
-                logger.error('file is Needed Parameter')
-            try:
-                name = ar.name
-                encrypt = ar.encrypt
-                key = ar.key
-            except:
-                logger.info('Some Optional Argumant arent Passed But Not Matter')
-            
+        for keys, value in kwargs.items():
+            if str(keys) == 'name': name = value
+            if str(keys) == 'encrypt': encrypt = value
+            if str(keys) == 'key': key = value
+
         # Upload File Function        
-        logger.info('Passed to Upload File Parameters')
-        file_upload.upload_file(file,dest)
+        logger.info('Passing to Upload File Parameters')
+        file_upload.upload_file(file,dest, name=name, encrypt=encrypt, key=key)
         
