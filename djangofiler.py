@@ -53,5 +53,6 @@ class DjangoFiler:
 
         # Upload File Function        
         logger.info('Passing to Upload File Parameters')
-        file_upload.upload_file(file,dest, name=name, encrypt=encrypt, key=key)
+        fileupload = file_upload.upload_file(file,dest, name=name, encrypt=encrypt, key=key)
+        return fileupload
         

@@ -10,6 +10,7 @@
 
 # Import Local Modules
 from . import logger, namegen
+import json
 
 ################ Parametrs
 dest = 0
@@ -81,8 +82,18 @@ def upload_file(file, dest,**kwargs):
                     for chunk in file.chunks():
                         destination.write(chunk)
                 logger.info('{} Uploaded Successfully :)'.format(name))
+                try:
+                    callback = {'status':'ok', 'name': '{}.{}'.format(name,frtfile) }
+                    return json.dumps(callback)
+                except:
+                    logger.error('We Couldent Return Status Of Your Process :(')
             except:
-                logger.error('OoPS {} Not Uploaded Sorry :('.format(name))
+                logger.error('Oops {} Not Uploaded Sorry :('.format(name))
+                try:
+                    callback = {'status':'fail'}
+                    return json.dumps(callback)
+                except:
+                    logger.error('We Couldent Return Status Of Your Process :(')
 
         else:
             try:
@@ -90,6 +101,18 @@ def upload_file(file, dest,**kwargs):
                 with open('{}/{}.{}'.format(dest, generated_name, frtfile), 'wb+') as destination:
                     for chunk in file.chunks():
                         destination.write(chunk)
+                
                 logger.info('{} Uploaded Successfully :)'.format(generated_name))
+                # Return Status
+                try:
+                    callback = {'status':'ok', 'name': '{}.{}'.format(generated_name,frtfile) }
+                    return json.dumps(callback)
+                except:
+                    logger.error('We Couldent Return Status Of Your Process :(')
             except:
-                logger.error('OoPS {} Not Uploaded Sorry :('.format(generated_name))
+                logger.error('Oops {} Not Uploaded Sorry :('.format(generated_name))
+                try:
+                    callback = {'status':'fail'}
+                    return json.dumps(callback)
+                except:
+                    logger.error('We Couldent Return Status Of Your Process :(')
