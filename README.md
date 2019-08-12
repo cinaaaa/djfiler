@@ -1,12 +1,11 @@
-<p align="center">
+<p align="left">
     <img width="300" src="https://raw.githubusercontent.com/E-RROR/django-filer/master/d376573d-c0f3-4fde-8467-952d7ffada1d_200x200.png" />
 </p>
 
 <h1 align="center">Django Filer</h1>
+<br />
+<h2>An Easy Way To Upload Files To Django</h2>
 
-<div align="center">
-    <h2>An Easy Way To Upload Files To Django</h2>
-</div>
 
 ## ✨ Features
 
@@ -18,7 +17,7 @@
 ## 📦 Install
 
 ```bash
-pip3 install django-filer
+$ pip3 install django-filer
 ```
 
 ## 🔨 Usage
@@ -29,7 +28,7 @@ pip3 install django-filer
 from djangofiler import djangofiler
 
 # Initial Django Filer
-djs = djangofiler.Filer('/dir/of/uploades', True: is "Debugger Mode")
+djs = djangofiler.Filer('/dir/of/uploades', True)
 
 ''' djs can be any name you like '''
 ```
