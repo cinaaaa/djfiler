@@ -75,7 +75,7 @@ def upload_file(file, dest,**kwargs):
                 with open('{}/{}.{}'.format(dest, name, frtfile), 'wb+') as destination:
                     for chunk in file.chunks():
                         destination.write(chunk)
-                logger.info('{} Uploaded Successfully :)'.format(name))
+                logger.info('{} Uploaded Successfully :) to {}'.format(name, dest))
                 try:
                     callback = {'status':'ok', 'name': '{}'.format(name), 'type':frtfile }
                     return json.dumps(callback)
@@ -103,7 +103,7 @@ def upload_file(file, dest,**kwargs):
                     for chunk in file.chunks():
                         destination.write(chunk)
                 
-                logger.info('{} Uploaded Successfully :)'.format(generated_name))
+                logger.info('{} Uploaded Successfully :) to {}'.format(generated_name, dest))
                 # Return Status
                 try:
                     callback = {'status':'ok', 'name': '{}'.format(generated_name), 'type':frtfile }
