@@ -3,7 +3,7 @@
 #
 #   @2019 All Rights Served
 #
-#   We Found and Returns State Of Files Here
+#   We Found and Returns Url Of Files Here
 #
 """
 from . import namegen, logger

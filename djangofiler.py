@@ -3,11 +3,11 @@
 #
 #   @2019 All Rights Served
 #
-#   Django File Upload Handler v 0.1
+#   Django Filer v 0.1
 #
-#   https://github.com/E-RROR/django-file-uplaod-handler
+#   github = https://github.com/E-RROR/django-file-uplaod-handler
 #
-#   All Files Supports
+#   All Files Supports :)
 #
 """
 import json
@@ -16,31 +16,27 @@ from .core import file_upload, logger, founder
 
 # Some Of Needed Parameters
 name = 0
-encrypt = 0
-key = 0
 
 
-class DjangoFiler:
+class Filer:
     """
     @2019
     You Can Upload Files With Non encryption or Encrypted Format With This Module
-    Usage:
+    See https://github.com/E-RROR/django-filer for Examples and more info
     """
 
     # Initial Class
-    def __init__(self, dest_root: 'destination path', sec_key: 'Django secret key to encrypt files', debug: 'Mode Of Debug Process'):
+    def __init__(self, dest_root: 'destination path', debug: 'Mode Of Debug Process'):
         self.dest = dest_root
-        self.key = sec_key
         # Set The Logger Mode
         if debug != True : logger.init(0)
         if debug == True : logger.info('You See Log Messages Because Debug Mode is True')
         logger.info('''
             Uploader Initialized Successfully :) with this params
-            \r\n
-            destination = {} \r\n
-            secretkey = {}   \r\n
-            debug mode = {} \r\n
-            '''.format(dest_root, sec_key, debug))
+            \n
+            destination = {} \n
+            debug mode = {} \n
+            '''.format(dest_root, debug))
 
     # Upload Function
     def upload(self, file, **kwargs):
@@ -49,16 +45,12 @@ class DjangoFiler:
         """
         ################ Needed Parameters
         global name
-        global key
-        global encrypt
         # Destination Dir
         dest = self.dest
         # Encrypt File Boolean (optional)
         # Get The Parametrs From Args
         for keys, value in kwargs.items():
             if str(keys) == 'name': name = value
-            if str(keys) == 'encrypt': encrypt = value
-            if str(keys) == 'key': key = value
 
         # Upload File Function        
         logger.info('Passing to Upload File Parameters')
