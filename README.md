@@ -37,8 +37,8 @@ Handle Upload Files In Any Format
 ```python
 def home(request):
     if request.method == "POST":
-        callback = djs.upload(file=request.FILES['file name uploaded'], name="Optional" We Generate Random Name If You Dont Use name for file its recomended )
-        print(callback) # Its Returns {status: ok or fail , name: name of file ( Its Key Of File ) , type: type of file }
+        callback = djs.upload(file=request.FILES['file name uploaded'], name="Optional" )
+        print(callback) # Its Returns {status:ok | fail,name: name of file ( Its Key Of File ),type: type of file }
 ```
 
 Return Any File With A Simple Key (Key Is The String That We Return To You When Uploaded file)
