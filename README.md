@@ -16,7 +16,7 @@
 ## 📦 Install
 
 ```bash
-$ pip3 install django-filer
+$ pip3 install djangofiler
 ```
 
 ## 🔨 Usage
