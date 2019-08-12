@@ -43,14 +43,8 @@ def upload_file(file, dest,**kwargs):
     logger.info('all parameters Passed {}{}{}'.format(key,encrypt,name))
 
 
-
+    # Get The File Format
     frtfile = file.name.rsplit('.', 1)[1]
-    # Generate Name For File
-    try:
-        generated_name = namegen.generate_name()
-        logger.info(':) Name Generated : {}'.format(generated_name))
-    except:
-        logger.error(':( Name Not Generated')
     
 
 
@@ -83,7 +77,7 @@ def upload_file(file, dest,**kwargs):
                         destination.write(chunk)
                 logger.info('{} Uploaded Successfully :)'.format(name))
                 try:
-                    callback = {'status':'ok', 'name': '{}.{}'.format(name,frtfile) }
+                    callback = {'status':'ok', 'name': '{}'.format(name), 'type':frtfile }
                     return json.dumps(callback)
                 except:
                     logger.error('We Couldent Return Status Of Your Process :(')
@@ -96,6 +90,13 @@ def upload_file(file, dest,**kwargs):
                     logger.error('We Couldent Return Status Of Your Process :(')
 
         else:
+            # Generate Name For File
+            try:
+                generated_name = namegen.generate_name()
+                logger.info(':) Name Generated : {}'.format(generated_name))
+            except:
+                logger.error(':( Name Not Generated')
+            
             try:
                 # Write Uploaded Chunks
                 with open('{}/{}.{}'.format(dest, generated_name, frtfile), 'wb+') as destination:
@@ -105,7 +106,7 @@ def upload_file(file, dest,**kwargs):
                 logger.info('{} Uploaded Successfully :)'.format(generated_name))
                 # Return Status
                 try:
-                    callback = {'status':'ok', 'name': '{}.{}'.format(generated_name,frtfile) }
+                    callback = {'status':'ok', 'name': '{}'.format(generated_name), 'type':frtfile }
                     return json.dumps(callback)
                 except:
                     logger.error('We Couldent Return Status Of Your Process :(')
