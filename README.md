@@ -1,10 +1,15 @@
-<p align="left">
-    <img width="300" src="https://raw.githubusercontent.com/E-RROR/django-filer/master/d376573d-c0f3-4fde-8467-952d7ffada1d_200x200.png" />
+<p align="center">
+    <img width="200" src="https://raw.githubusercontent.com/E-RROR/django-filer/master/d376573d-c0f3-4fde-8467-952d7ffada1d_200x200.png" />
 </p>
 
-<h1 align="left">Dj 'ango' Filer</h1>
-<h2>An Easy Way To Upload Files To Django</h2>
-
+<h1 align="center">Django Filer</h1>
+<p align="center">An Easy Way To Upload Files To Django</p>
+<div align="center">
+<img align="center" alt="PyPI" src="https://img.shields.io/pypi/v/djfiler?color=%23cccc&label=version&style=plastic" />
+<img align="center" alt="PyPI - Django Version" src="https://img.shields.io/pypi/djversions/djangorestframework" />
+<img align="center" alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/djfiler" />
+<img align="center" alt="PyPI - Wheel" src="https://img.shields.io/pypi/wheel/djfiler" />
+</div>
 
 ## ✨ Features
 
