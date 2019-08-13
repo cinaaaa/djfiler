@@ -5,7 +5,7 @@
 #
 #   Django Filer v 0.1
 #
-#   github = https://github.com/E-RROR/django-file-uplaod-handler
+#   github = https://github.com/E-RROR/djfiler
 #
 #   All Files Supports :)
 #
