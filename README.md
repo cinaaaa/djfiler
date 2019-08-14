@@ -38,16 +38,29 @@ djs = djfiler.Filer('/dir/of/uploades', True)
 ''' djs can be any name you like '''
 ```
 
-Handle Upload Files In Any Format
-
+How To Upload Files Any Format
+====================================
+first create the function
+urls.py
 ```python
 def home(request):
     if request.method == "POST":
         callback = djs.upload(file=request.FILES['file name uploaded'], name="Optional" )
         print(callback) # Its Returns {status:ok | fail,name: name of file ( Its Key Of File ),type: type of file }
 ```
-
 Return Any File With A Simple Key (Key Is The String That We Return To You When Uploaded file)
+then in html file create simple form that send files with a name
+```html
+<form action="/path/to/any/url" method="post" enctype="multipart/form-data">
+    Select File to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+```
+then files saves to directory you inital in the Class
+
+How To Host Files
+===================================
 
 urls.py
 ```python
@@ -69,4 +82,8 @@ def sendfile(request, key):
     else:
         return HttpResponse('File Not Found')
 ```
-Thats All
+file.html
+```html
+<img src="/images/<key>" />
+```
+Thats All 
