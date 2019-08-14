@@ -28,7 +28,8 @@ $ pip3 install djfiler
 
 ```python
 
-# Import Django Filer
+# Import Django Filer & json
+import json
 from djfiler import djfiler
 
 # Initial Django Filer
