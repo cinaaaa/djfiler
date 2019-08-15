@@ -59,7 +59,6 @@ then in html file create simple form that send files with a name
 then files saves to directory you inital in the Class
 
 ## 🎯 Host Files
-===================================
 
 urls.py
 ```python
