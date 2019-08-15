@@ -38,8 +38,7 @@ djs = djfiler.Filer('/dir/of/uploades', True)
 ''' djs can be any name you like '''
 ```
 
-How To Upload Files Any Format
-====================================
+## 📤 Upload in Any Format
 first create the function
 urls.py
 ```python
@@ -59,7 +58,7 @@ then in html file create simple form that send files with a name
 ```
 then files saves to directory you inital in the Class
 
-How To Host Files
+## 🎯 Host Files
 ===================================
 
 urls.py
@@ -86,4 +85,13 @@ file.html
 ```html
 <img src="/images/<key>" />
 ```
-Thats All 
+Thats All
+
+## 🗜️ Test Code
+Simply Test code by this commands
+```shell
+$ git clone https://github.com/E-RROR/djfiler
+$ cd djfiler
+$ python3 test-djfiler.py
+```
+
