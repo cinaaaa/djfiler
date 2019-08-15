@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="200" src="https://raw.githubusercontent.com/E-RROR/django-filer/master/d376573d-c0f3-4fde-8467-952d7ffada1d_200x200.png" />
+    <img width="200" src="https://raw.githubusercontent.com/E-RROR/djfiler/master/djfiler/d376573d-c0f3-4fde-8467-952d7ffada1d_200x200.png" />
 </p>
 
 <h1 align="center">Django Filer</h1>
