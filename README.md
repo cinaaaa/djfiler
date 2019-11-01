@@ -4,6 +4,7 @@
 
 <h1 align="center">Django Filer</h1>
 <p align="center">An Easy Way To Upload Files To Django</p>
+<a href="https://sinafarhadi.ir/How-To-Upload-Files-In-Django/">See The Full Tutorial Here</a>
 <div align="center">
 <img align="center" alt="PyPI" src="https://img.shields.io/pypi/v/djfiler?color=%23cccc&label=version&style=plastic" />
 <img align="center" alt="PyPI - Django Version" src="https://img.shields.io/pypi/djversions/djangorestframework" />
