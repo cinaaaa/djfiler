@@ -87,7 +87,7 @@ file.html
 Thats All
 
 ## 🗜️ Test Code
-Simply Test code by this commands
+Simply Test code like this
 ```shell
 $ git clone https://github.com/E-RROR/djfiler
 $ cd djfiler
